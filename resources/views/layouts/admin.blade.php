@@ -107,16 +107,16 @@
             {{ __('ui.nav.ot_register') }}
         </a>
         @endif
-{{--        @if($canSee('register.leave'))--}}
-{{--        <a href="{{ route('admin.register.leave.create') }}"--}}
-{{--           class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors--}}
-{{--                  {{ request()->routeIs('admin.register.leave.*') ? 'bg-gray-100 text-gray-900 font-bold' : 'text-gray-600 hover:bg-gray-50' }}">--}}
-{{--            <svg class="w-5 h-5 mr-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">--}}
-{{--                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>--}}
-{{--            </svg>--}}
-{{--            {{ __('ui.nav.leave_register') }}--}}
-{{--        </a>--}}
-{{--        @endif--}}
+        @if($canSee('register.leave'))
+        <a href="{{ route('admin.register.leave.create') }}"
+           class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors
+                  {{ request()->routeIs('admin.register.leave.*') ? 'bg-gray-100 text-gray-900 font-bold' : 'text-gray-600 hover:bg-gray-50' }}">
+            <svg class="w-5 h-5 mr-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            {{ __('ui.nav.leave_register') }}
+        </a>
+        @endif
         @if($canSee('import.ot'))
         <a href="{{ route('admin.import.ot') }}"
            class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors
@@ -127,16 +127,16 @@
             {{ __('ui.nav.import_ot') }}
         </a>
         @endif
-{{--        @if($canSee('import.leave'))--}}
-{{--        <a href="{{ route('admin.import.leave') }}"--}}
-{{--           class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors mb-4--}}
-{{--                  {{ request()->routeIs('admin.import.leave*') ? 'bg-gray-100 text-gray-900 font-bold' : 'text-gray-600 hover:bg-gray-50' }}">--}}
-{{--            <svg class="w-5 h-5 mr-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">--}}
-{{--                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>--}}
-{{--            </svg>--}}
-{{--            {{ __('ui.nav.import_leave') }}--}}
-{{--        </a>--}}
-{{--        @endif--}}
+        @if($canSee('import.leave'))
+        <a href="{{ route('admin.import.leave') }}"
+           class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors mb-4
+                  {{ request()->routeIs('admin.import.leave*') ? 'bg-gray-100 text-gray-900 font-bold' : 'text-gray-600 hover:bg-gray-50' }}">
+            <svg class="w-5 h-5 mr-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
+            </svg>
+            {{ __('ui.nav.import_leave') }}
+        </a>
+        @endif
         @endif
 
 {{--        @if($canSee('salary'))--}}

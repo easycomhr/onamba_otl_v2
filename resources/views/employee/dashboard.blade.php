@@ -332,7 +332,7 @@
     </div>
 
     {{-- Leave Section --}}
-    <!-- <div class="mb-8">
+    <div class="mb-8">
         <h2 class="text-[13px] font-bold text-gray-500 uppercase tracking-wider mb-4 flex items-center">
             <span class="w-1.5 h-4 bg-green-600 rounded-full mr-2"></span>
             {{ __('ui.dashboard.leave_management') }}
@@ -357,7 +357,7 @@
                 <span class="text-[16px] font-bold ml-4 uppercase">{{ __('ui.dashboard.leave_history') }}</span>
             </a>
         </div>
-    </div> -->
+    </div>
 
     {{-- Salary Section --}}
 {{--    <div class="mb-8">--}}
