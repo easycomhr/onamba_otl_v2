@@ -29,8 +29,9 @@ class LeaveController extends Controller
     public function create()
     {
         $leaveBalance = Auth::user()->annual_leave_balance;
+        $leaveTypes = LeaveRequest::LEAVE_TYPES;
 
-        return view('employee.leave.register', compact('leaveBalance'));
+        return view('employee.leave.register', compact('leaveBalance', 'leaveTypes'));
     }
 
     public function store(StoreLeaveRequest $request)

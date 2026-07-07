@@ -52,10 +52,10 @@
                 <div class="relative">
                     <select id="leave_type" name="leave_type" required
                             class="appearance-none block w-full min-h-[50px] px-4 pr-10 text-[17px] text-gray-800 bg-white border-2 border-gray-300 @error('leave_type') border-red-500 @enderror rounded-xl focus:outline-none focus:border-green-500 transition-colors">
-                        <option value="annual" @selected(old('leave_type') === 'annual')>{{ __('ui.leave.type.annual') }}</option>
-                        <option value="sick" @selected(old('leave_type') === 'sick')>{{ __('ui.leave.type.sick') }}</option>
-                        <option value="personal" @selected(old('leave_type') === 'personal')>{{ __('ui.leave.type.personal') }}</option>
-                        <option value="unpaid" @selected(old('leave_type') === 'unpaid')>{{ __('ui.leave.type.unpaid') }}</option>
+                        <option value="">-- {{ __('ui.leave.type') }} --</option>
+                        @foreach($leaveTypes as $key => $label)
+                            <option value="{{ $key }}" @selected(old('leave_type') === $key)>{{ $label }}</option>
+                        @endforeach
                     </select>
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4">
                         <svg class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
