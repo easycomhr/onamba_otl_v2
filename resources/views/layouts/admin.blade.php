@@ -78,21 +78,21 @@
             @endif
         </a>
         @endif
-{{--        @if($canSee('approvals.leave'))--}}
-{{--        <a href="{{ route('admin.approvals.leave.index') }}"--}}
-{{--           class="flex items-center justify-between px-3 py-2.5 rounded-lg font-medium transition-colors mb-4--}}
-{{--                  {{ request()->routeIs('admin.approvals.leave.*') ? 'bg-gray-100 text-gray-900 font-bold' : 'text-gray-600 hover:bg-gray-50' }}">--}}
-{{--            <div class="flex items-center">--}}
-{{--                <svg class="w-5 h-5 mr-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">--}}
-{{--                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>--}}
-{{--                </svg>--}}
-{{--                {{ __('ui.nav.leave_approvals') }}--}}
-{{--            </div>--}}
-{{--            @if($sidebarLeavePending > 0)--}}
-{{--            <span class="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-0.5 rounded-full">{{ $sidebarLeavePending }}</span>--}}
-{{--            @endif--}}
-{{--        </a>--}}
-{{--        @endif--}}
+        @if($canSee('approvals.leave'))
+        <a href="{{ route('admin.approvals.leave.index') }}"
+           class="flex items-center justify-between px-3 py-2.5 rounded-lg font-medium transition-colors mb-4
+                  {{ request()->routeIs('admin.approvals.leave.*') ? 'bg-gray-100 text-gray-900 font-bold' : 'text-gray-600 hover:bg-gray-50' }}">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
+                </svg>
+                {{ __('ui.nav.leave_approvals') }}
+            </div>
+            @if($sidebarLeavePending > 0)
+            <span class="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-0.5 rounded-full">{{ $sidebarLeavePending }}</span>
+            @endif
+        </a>
+        @endif
         @endif
 
         @if($canSee('register.ot') || $canSee('register.leave') || $canSee('import.ot') || $canSee('import.leave'))
@@ -139,25 +139,25 @@
         @endif
         @endif
 
-{{--        @if($canSee('salary'))--}}
-{{--        <h3 class="px-3 text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 mt-6 border-t border-gray-100 pt-4">{{ __('ui.menu.salary_section') }}</h3>--}}
-{{--        <a href="{{ route('admin.salary.index') }}"--}}
-{{--           class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors--}}
-{{--                  {{ request()->routeIs('admin.salary.index') ? 'bg-gray-100 text-gray-900 font-bold' : 'text-gray-600 hover:bg-gray-50' }}">--}}
-{{--            <svg class="w-5 h-5 mr-3 text-purple-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">--}}
-{{--                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>--}}
-{{--            </svg>--}}
-{{--            {{ __('ui.nav.salary') }}--}}
-{{--        </a>--}}
-{{--        <a href="{{ route('admin.salary.import') }}"--}}
-{{--           class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors mb-4--}}
-{{--                  {{ request()->routeIs('admin.salary.import*') ? 'bg-gray-100 text-gray-900 font-bold' : 'text-gray-600 hover:bg-gray-50' }}">--}}
-{{--            <svg class="w-5 h-5 mr-3 text-purple-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">--}}
-{{--                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>--}}
-{{--            </svg>--}}
-{{--            {{ __('ui.nav.import_salary') }}--}}
-{{--        </a>--}}
-{{--        @endif--}}
+        @if($canSee('salary'))
+        <h3 class="px-3 text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 mt-6 border-t border-gray-100 pt-4">{{ __('ui.menu.salary_section') }}</h3>
+        <a href="{{ route('admin.salary.index') }}"
+           class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors
+                  {{ request()->routeIs('admin.salary.index') ? 'bg-gray-100 text-gray-900 font-bold' : 'text-gray-600 hover:bg-gray-50' }}">
+            <svg class="w-5 h-5 mr-3 text-purple-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            {{ __('ui.nav.salary') }}
+        </a>
+        <a href="{{ route('admin.salary.import') }}"
+           class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors mb-4
+                  {{ request()->routeIs('admin.salary.import*') ? 'bg-gray-100 text-gray-900 font-bold' : 'text-gray-600 hover:bg-gray-50' }}">
+            <svg class="w-5 h-5 mr-3 text-purple-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
+            </svg>
+            {{ __('ui.nav.import_salary') }}
+        </a>
+        @endif
 
         @if($canSee('employees') || $canSee('teams') || $canSee('reports.ot') || $canSee('reports.leave') || $allowedModules === null)
         <h3 class="px-3 text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 mt-6 border-t border-gray-100 pt-4">{{ __('ui.menu.system_reports_section') }}</h3>
