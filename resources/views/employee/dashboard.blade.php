@@ -360,23 +360,23 @@
     </div>
 
     {{-- Salary Section --}}
-{{--    <div class="mb-8">--}}
-{{--        <h2 class="text-[13px] font-bold text-gray-500 uppercase tracking-wider mb-4 flex items-center">--}}
-{{--            <span class="w-1.5 h-4 bg-purple-600 rounded-full mr-2"></span>--}}
-{{--            {{ __('ui.dashboard.salary_management') }}--}}
-{{--        </h2>--}}
-{{--        <div class="space-y-3.5">--}}
-{{--            <a href="{{ route('employee.salary.index') }}"--}}
-{{--               class="flex items-center min-h-[72px] bg-purple-600 text-white rounded-[1.25rem] shadow-md px-5 active:bg-purple-700 active:scale-[0.98] transition-all">--}}
-{{--                <div class="bg-white/25 p-2.5 rounded-xl border border-white/10">--}}
-{{--                    <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">--}}
-{{--                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>--}}
-{{--                    </svg>--}}
-{{--                </div>--}}
-{{--                <span class="text-[17px] font-bold ml-4 uppercase tracking-wide">{{ __('ui.dashboard.salary_history') }}</span>--}}
-{{--            </a>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <div class="mb-8">
+        <h2 class="text-[13px] font-bold text-gray-500 uppercase tracking-wider mb-4 flex items-center">
+            <span class="w-1.5 h-4 bg-purple-600 rounded-full mr-2"></span>
+            {{ __('ui.dashboard.salary_management') }}
+        </h2>
+        <div class="space-y-3.5">
+            <a href="{{ route('employee.salary.index') }}"
+               class="flex items-center min-h-[72px] bg-purple-600 text-white rounded-[1.25rem] shadow-md px-5 active:bg-purple-700 active:scale-[0.98] transition-all">
+                <div class="bg-white/25 p-2.5 rounded-xl border border-white/10">
+                    <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                </div>
+                <span class="text-[17px] font-bold ml-4 uppercase tracking-wide">{{ __('ui.dashboard.salary_history') }}</span>
+            </a>
+        </div>
+    </div>
 
     {{-- Footer menu --}}
     <div class="mt-4 pt-6 border-t border-gray-200 space-y-3.5">
