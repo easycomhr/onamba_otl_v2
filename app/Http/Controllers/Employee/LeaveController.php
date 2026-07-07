@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Log;
 class LeaveController extends Controller
 {
     public function __construct(private LeaveService $service) {
-        abort(404);
+
     }
 
     public function index()
