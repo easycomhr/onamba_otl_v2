@@ -24,11 +24,14 @@
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-3">
             <div class="grid grid-cols-5 gap-2.5">
                 <div class="col-span-2 relative">
-                    <select class="block w-full min-h-[50px] px-3 pr-8 bg-gray-50 border border-gray-200 rounded-xl text-[15px] font-bold text-gray-700 focus:outline-none appearance-none cursor-pointer">
-                        <option value="02" selected>Tháng 02</option>
-                        <option value="01">Tháng 01</option>
-                        <option value="12">Tháng 12</option>
-                        <option value="11">Tháng 11</option>
+                    <select id="filter-month" class="block w-full min-h-[50px] px-3 pr-8 bg-gray-50 border border-gray-200 rounded-xl text-[15px] font-bold text-gray-700 focus:outline-none appearance-none cursor-pointer">
+                        @php($months = $salaries->pluck('month')->unique()->sortDesc()->values())
+                        @foreach($months as $m)
+                            <option value="{{ $m }}">Tháng {{ str_pad($m, 2, '0', STR_PAD_LEFT) }}</option>
+                        @endforeach
+                        @if($months->isEmpty())
+                            <option value="">-- Tất cả --</option>
+                        @endif
                     </select>
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
                         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -38,9 +41,14 @@
                 </div>
 
                 <div class="col-span-2 relative">
-                    <select class="block w-full min-h-[50px] px-3 pr-8 bg-gray-50 border border-gray-200 rounded-xl text-[15px] font-bold text-gray-700 focus:outline-none appearance-none cursor-pointer">
-                        <option value="2026" selected>2026</option>
-                        <option value="2025">2025</option>
+                    <select id="filter-year" class="block w-full min-h-[50px] px-3 pr-8 bg-gray-50 border border-gray-200 rounded-xl text-[15px] font-bold text-gray-700 focus:outline-none appearance-none cursor-pointer">
+                        @php($years = $salaries->pluck('year')->unique()->sortDesc()->values())
+                        @foreach($years as $y)
+                            <option value="{{ $y }}">{{ $y }}</option>
+                        @endforeach
+                        @if($years->isEmpty())
+                            <option value="{{ now()->year }}">{{ now()->year }}</option>
+                        @endif
                     </select>
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
                         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -49,7 +57,8 @@
                     </div>
                 </div>
 
-                <button type="button" class="col-span-1 bg-purple-600 hover:bg-purple-700 text-white rounded-xl min-h-[50px] flex items-center justify-center shadow-sm transition-colors active:scale-95">
+                <button type="button" id="btn-filter"
+                        class="col-span-1 bg-purple-600 hover:bg-purple-700 text-white rounded-xl min-h-[50px] flex items-center justify-center shadow-sm transition-colors active:scale-95">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
                     </svg>
@@ -57,6 +66,7 @@
             </div>
         </div>
     </div>
+
 
     {{-- Salary list --}}
     <div class="px-4 space-y-5">

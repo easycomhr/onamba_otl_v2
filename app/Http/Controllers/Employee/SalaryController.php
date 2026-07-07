@@ -43,21 +43,36 @@ class SalaryController extends Controller
 
             // ── Thu nhập & Phụ cấp ───────────────────────────────────────────
             'income' => [
-                ['label' => 'Lương căn bản',           'value' => (float) $r->base_salary,          'is_money' => true],
-                ['label' => 'Tăng ca 150%',             'value' => (float) $r->ot_hours_150,         'is_money' => true],
-                ['label' => 'Tăng ca 200%',             'value' => (float) $r->ot_hours_200,         'is_money' => true],
-                ['label' => 'Tăng ca 300%',             'value' => (float) $r->ot_hours_300,         'is_money' => true],
-                ['label' => 'PC Chuyên cần',            'value' => (float) $r->allowance_attendance, 'is_money' => true],
-                ['label' => 'PC Cơm trưa',              'value' => (float) $r->allowance_lunch,      'is_money' => true],
-                ['label' => 'PC Nặng nhọc',             'value' => (float) $r->allowance_heavy_work, 'is_money' => true],
-                ['label' => 'PC Thâm niên',             'value' => (float) $r->allowance_seniority,  'is_money' => true],
-                ['label' => 'PC Xăng',                  'value' => (float) $r->allowance_fuel,       'is_money' => true],
-                ['label' => 'PC Đi làm xa',             'value' => (float) $r->allowance_distance,   'is_money' => true],
-                ['label' => 'PC Điện thoại',            'value' => (float) $r->allowance_phone,      'is_money' => true],
-                ['label' => 'PC Đứng máy',              'value' => (float) $r->allowance_machine,    'is_money' => true],
-                ['label' => 'PC Khác',                  'value' => (float) $r->allowance_other,      'is_money' => true],
-                ['label' => 'PC Cơm OT',                'value' => (float) $r->allowance_ot_meal,    'is_money' => true],
-                ['label' => 'Lương tháng 13',           'value' => (float) $r->salary_13th_month,    'is_money' => true],
+                ['label' => 'Lương căn bản',           'value' => (float) $r->base_salary,            'is_money' => true],
+                // Phụ cấp từ tblsalaryhistory
+                ['label' => 'PC Vị trí',               'value' => (float) $r->allowance_position,     'is_money' => true],
+                ['label' => 'PC Thành thạo',           'value' => (float) $r->allowance_proficiency,  'is_money' => true],
+                ['label' => 'PC Chỉ đạo/Kiêm nhiệm',  'value' => (float) $r->allowance_steering,     'is_money' => true],
+                ['label' => 'PC Môi trường',           'value' => (float) $r->allowance_environment,  'is_money' => true],
+                ['label' => 'PC Công việc đặc biệt',   'value' => (float) $r->allowance_special_work, 'is_money' => true],
+                ['label' => 'PC Hiện trường',          'value' => (float) $r->allowance_scene,        'is_money' => true],
+                ['label' => 'PC Thiếu nhà ở',          'value' => (float) $r->allowance_housing,      'is_money' => true],
+                ['label' => 'Khoản thu (Lead)',         'value' => (float) $r->allowance_lead,         'is_money' => true],
+                ['label' => 'PC Trượt giá',            'value' => (float) $r->allowance_slippage,     'is_money' => true],
+                ['label' => 'PC Kỹ năng',              'value' => (float) $r->allowance_skill,        'is_money' => true],
+                ['label' => 'PC Ngôn ngữ',             'value' => (float) $r->allowance_language,     'is_money' => true],
+                // Phụ cấp hiện tại
+                ['label' => 'Tăng ca 150%',            'value' => (float) $r->ot_hours_150,           'is_money' => true],
+                ['label' => 'Tăng ca 200%',            'value' => (float) $r->ot_hours_200,           'is_money' => true],
+                ['label' => 'Tăng ca 300%',            'value' => (float) $r->ot_hours_300,           'is_money' => true],
+                ['label' => 'PC Chuyên cần',           'value' => (float) $r->allowance_attendance,   'is_money' => true],
+                ['label' => 'PC Cơm trưa',             'value' => (float) $r->allowance_lunch,        'is_money' => true],
+                ['label' => 'PC Nặng nhọc',            'value' => (float) $r->allowance_heavy_work,   'is_money' => true],
+                ['label' => 'PC Thâm niên',            'value' => (float) $r->allowance_seniority,    'is_money' => true],
+                ['label' => 'PC Xăng',                 'value' => (float) $r->allowance_fuel,         'is_money' => true],
+                ['label' => 'PC Đi làm xa',            'value' => (float) $r->allowance_distance,     'is_money' => true],
+                ['label' => 'PC Điện thoại',           'value' => (float) $r->allowance_phone,        'is_money' => true],
+                ['label' => 'PC Đứng máy',             'value' => (float) $r->allowance_machine,      'is_money' => true],
+                ['label' => 'PC Khác',                 'value' => (float) $r->allowance_other,        'is_money' => true],
+                ['label' => 'PC Cơm OT',               'value' => (float) $r->allowance_ot_meal,      'is_money' => true],
+                ['label' => 'Lương tháng 13',          'value' => (float) $r->salary_13th_month,      'is_money' => true],
+                ['label' => 'Khoản thường xuyên',      'value' => (float) $r->regular_amount,         'is_money' => true],
+                ['label' => 'Điều chỉnh',              'value' => (float) $r->adjustment,             'is_money' => true],
             ],
             'income_total'  => (float) $r->income_total,
 
@@ -81,6 +96,14 @@ class SalaryController extends Controller
             'deductions_total' => (float) ($r->deduction_insurance_total + $r->deduction_union_fee
                 + $r->deduction_unpaid_leave + $r->deduction_pit_regular
                 + $r->deduction_pit_irregular + $r->deduction_advance),
+
+            // ── Thông tin bảo hiểm ────────────────────────────────────────────
+            'insurance' => [
+                'h_included' => (bool) $r->h_insurance_included,
+                's_included' => (bool) $r->s_insurance_included,
+                'j_included' => (bool) $r->j_insurance_included,
+            ],
+            'parking_free' => (bool) $r->parking_free,
         ];
 
         return view('employee.salary.detail', compact('salary'));

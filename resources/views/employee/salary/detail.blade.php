@@ -29,12 +29,38 @@
             <div class="text-white text-4xl sm:text-[40px] font-black tracking-tight mb-5 drop-shadow-md">
                 {{ number_format($salary['net']) }} <span class="text-2xl font-bold">VNĐ</span>
             </div>
-            <div class="w-full border-t border-purple-400/50 pt-3 flex items-center justify-center text-purple-100 text-[13px]">
-                <svg class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"/>
-                </svg>
-                <span>Hình thức trả tiền: <strong>{{ $salary['payment_method'] }}</strong></span>
+            <div class="w-full border-t border-purple-400/50 pt-3 flex items-center justify-center gap-3 flex-wrap">
+                <div class="flex items-center text-purple-100 text-[13px]">
+                    <svg class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"/>
+                    </svg>
+                    <span>Hình thức: <strong>{{ $salary['payment_method'] }}</strong></span>
+                </div>
+                @if($salary['parking_free'])
+                <span class="bg-purple-400/30 text-purple-100 text-[12px] font-bold px-2.5 py-1 rounded-full border border-purple-300/50">
+                    🅿️ Miễn phí đậu xe
+                </span>
+                @endif
             </div>
+        </div>
+    </div>
+
+    {{-- Bảo hiểm badges --}}
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-4">
+        <p class="text-[13px] font-semibold text-gray-500 uppercase tracking-wider mb-3">Tham gia bảo hiểm</p>
+        <div class="flex gap-2 flex-wrap">
+            <span class="px-3 py-1.5 rounded-lg text-[13px] font-bold border
+                {{ $salary['insurance']['h_included'] ? 'bg-green-50 text-green-700 border-green-200' : 'bg-gray-100 text-gray-400 border-gray-200 line-through' }}">
+                BHXH (8%)
+            </span>
+            <span class="px-3 py-1.5 rounded-lg text-[13px] font-bold border
+                {{ $salary['insurance']['s_included'] ? 'bg-green-50 text-green-700 border-green-200' : 'bg-gray-100 text-gray-400 border-gray-200 line-through' }}">
+                BHYT (1.5%)
+            </span>
+            <span class="px-3 py-1.5 rounded-lg text-[13px] font-bold border
+                {{ $salary['insurance']['j_included'] ? 'bg-green-50 text-green-700 border-green-200' : 'bg-gray-100 text-gray-400 border-gray-200 line-through' }}">
+                BHTN (1%)
+            </span>
         </div>
     </div>
 
@@ -49,11 +75,14 @@
             <h3 class="text-[16px] font-bold text-gray-800 uppercase">1. Thu nhập & Phụ cấp</h3>
         </div>
         <div class="p-4 space-y-3.5">
+            {{-- Chỉ hiển thị các khoản > 0 --}}
             @foreach($salary['income'] as $row)
-            <div class="flex justify-between items-center">
-                <span class="text-[14px] text-gray-500 font-medium">{{ $row['label'] }}</span>
-                <span class="text-[16px] font-bold text-gray-900">{{ number_format($row['value']) }}</span>
-            </div>
+                @if($row['value'] > 0)
+                <div class="flex justify-between items-center">
+                    <span class="text-[14px] text-gray-500 font-medium">{{ $row['label'] }}</span>
+                    <span class="text-[16px] font-bold text-gray-900">{{ number_format($row['value']) }}</span>
+                </div>
+                @endif
             @endforeach
         </div>
         <div class="bg-gray-50/50 px-4 py-3.5 border-t border-gray-200 flex justify-between items-center">
@@ -102,10 +131,12 @@
         </div>
         <div class="p-4 space-y-3.5">
             @foreach($salary['deductions'] as $row)
+            @if($row['value'] > 0)
             <div class="flex justify-between items-center">
                 <span class="text-[14px] text-red-800/70 font-medium">{{ $row['label'] }}</span>
                 <span class="text-[16px] font-bold text-red-600">- {{ number_format($row['value']) }}</span>
             </div>
+            @endif
             @endforeach
         </div>
         <div class="bg-red-100/40 px-4 py-3.5 border-t border-red-200 flex justify-between items-center">
@@ -121,3 +152,4 @@
 </main>
 
 @endsection
+
